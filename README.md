@@ -12,10 +12,11 @@ Agents do not only fail because they cannot write the code. They also fail when 
 
 ![Two complementary ways to close understanding gaps: Common Ground aligns mismatched maps into a shared blueprint, while ELI5 turns a tangled system into a clear visual model.](docs/assets/skills-overview.webp)
 
-This collection addresses both sides of that problem:
+This collection addresses understanding gaps and overlooked domain knowledge:
 
 - `common-ground` helps a user and an agent discover material gaps before acting on them.
 - `eli5` turns a complex topic into a visual explanation that is easy to inspect and share.
+- `continuous-corners` brings an often-unspoken contour decision into SVG logo, icon, and device-silhouette design, with a bundled deterministic generator.
 
 The goal is not to accumulate as many skills as possible. It is to maintain a small set of useful, understandable workflows with explicit boundaries.
 
@@ -25,27 +26,30 @@ The goal is not to accumulate as many skills as possible. It is to maintain a sm
 | --- | --- | --- |
 | [`common-ground`](skills/common-ground/) | Intent, terminology, acceptance criteria, or consequential assumptions may differ | A shared working map with visible facts, decisions, assumptions, unknowns, and deviation rules |
 | [`eli5`](skills/eli5/) | A complex topic would be easier to understand through diagrams and minimal prose | A portable, standalone visual explainer in HTML |
+| [`continuous-corners`](skills/continuous-corners/) | Creating or refining SVG logos, icons, device silhouettes, or prominent rounded shapes | An intentional corner choice and reproducible SVG geometry; color-only and exact-preservation edits retain their contours |
 
 ## Install with the `skills` CLI
 
 Review the available skills before installing them:
 
 ```bash
-npx skills add HughLee824/skills --list
+npx skills add hughlee824/skills --list
 ```
 
 Install one skill globally for Codex:
 
 ```bash
-npx skills add HughLee824/skills --skill common-ground -g -a codex
-npx skills add HughLee824/skills --skill eli5 -g -a codex
+npx skills add hughlee824/skills --skill common-ground -g -a codex
+npx skills add hughlee824/skills --skill eli5 -g -a codex
+npx skills add hughlee824/skills --skill continuous-corners -g -a codex
 ```
 
 Install one skill globally for Claude Code:
 
 ```bash
-npx skills add HughLee824/skills --skill common-ground -g -a claude-code
-npx skills add HughLee824/skills --skill eli5 -g -a claude-code
+npx skills add hughlee824/skills --skill common-ground -g -a claude-code
+npx skills add hughlee824/skills --skill eli5 -g -a claude-code
+npx skills add hughlee824/skills --skill continuous-corners -g -a claude-code
 ```
 
 Omit `-g` for a project-scoped installation.
@@ -57,24 +61,25 @@ Agent skills run with the permissions available to your agent. Read a skill's `S
 Add this repository as a marketplace once:
 
 ```text
-/plugin marketplace add HughLee824/skills
+/plugin marketplace add hughlee824/skills
 ```
 
-Then install either skill independently:
+Then install a skill independently:
 
 ```text
 /plugin install common-ground@hughlee-skills
 /plugin install eli5@hughlee-skills
+/plugin install continuous-corners@hughlee-skills
 ```
 
-Run `/reload-plugins` if Claude Code prompts you to activate newly installed plugins. Marketplace installs use Claude Code's namespaced commands: `/common-ground:common-ground` and `/eli5:eli5`.
+Run `/reload-plugins` if Claude Code prompts you to activate newly installed plugins. Marketplace installs use Claude Code's namespaced commands: `/common-ground:common-ground`, `/eli5:eli5`, and `/continuous-corners:continuous-corners`.
 
 ### Manual installation
 
 Clone the repository and copy the skill you want into the user-level skills directory for your agent:
 
 ```bash
-git clone https://github.com/HughLee824/skills.git agent-skills
+git clone https://github.com/hughlee824/skills.git agent-skills
 
 # Codex
 mkdir -p "$HOME/.agents/skills"
@@ -97,18 +102,26 @@ $common-ground Help us align on the checkout redesign before implementation.
 
 $eli5 Explain how DNS turns a domain name into a server address.
 
+$continuous-corners Design a phone-themed SVG logo and consider its corner geometry.
+
 # Claude Code via the skills CLI or manual installation
 /common-ground Help us align on the checkout redesign before implementation.
 
 /eli5 Explain how DNS turns a domain name into a server address.
+
+/continuous-corners Design a phone-themed SVG logo and consider its corner geometry.
 ```
 
-Both skills may also be selected automatically when the request clearly matches their descriptions.
+Skills may also be selected automatically when the request clearly matches their descriptions. Selection depends on the agent; installing a skill does not guarantee invocation for every related task.
+
+`continuous-corners` includes an offline SVG/path/JSON generator requiring Node.js 22+. Its fixed profile is experimental and does not claim exact Apple or Figma geometry. See its [usage guide](skills/continuous-corners/references/usage.md) and [validation procedure](docs/continuous-corners-testing.md).
+
+See the [skill README](skills/continuous-corners/README.md) for the design principles and a real same-prompt comparison with and without the skill.
 
 ## Compatibility
 
 - Structured as standalone Agent Skills with a required `SKILL.md` per skill.
-- Tested with Codex, Claude Code, and the `skills` CLI.
+- Installer discovery, marketplace metadata, and agent behavior are verified separately; a successful installation does not prove automatic selection.
 - Core instructions are kept independent of a specific agent where practical.
 - `agents/openai.yaml` provides optional Codex-facing display metadata and invocation policy.
 - `.claude-plugin/marketplace.json` exposes each skill as an independently installable Claude Code plugin without duplicating its instructions.
@@ -124,6 +137,7 @@ Compatibility with another agent depends on that agent's support for the Agent S
 ├── .github/
 │   └── PULL_REQUEST_TEMPLATE.md
 ├── docs/
+│   ├── continuous-corners-testing.md
 │   └── assets/
 │       └── skills-overview.webp
 ├── skills/
@@ -131,11 +145,27 @@ Compatibility with another agent depends on that agent's support for the Agent S
 │   │   ├── SKILL.md
 │   │   ├── agents/
 │   │   └── references/
+│   ├── continuous-corners/
+│   │   ├── README.md
+│   │   ├── README.zh-CN.md
+│   │   ├── assets/
+│   │   ├── SKILL.md
+│   │   ├── agents/
+│   │   ├── references/
+│   │   ├── scripts/
+│   │   ├── LICENSE
+│   │   └── NOTICE
 │   └── eli5/
 │       ├── SKILL.md
 │       ├── agents/
 │       ├── LICENSE
 │       └── NOTICE
+├── scripts/
+│   └── check-continuous-corners-vendor.mjs
+├── tests/
+│   ├── continuous-corners.test.mjs
+│   ├── continuous-corners-cases.json
+│   └── fixtures/
 ├── CONTRIBUTING.md
 ├── LICENSE
 ├── NOTICE

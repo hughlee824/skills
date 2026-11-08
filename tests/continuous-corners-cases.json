@@ -1,0 +1,16 @@
+{
+  "positive": {
+    "prompt": "Create logo.svg: a clean phone-themed vector mark for a fictional developer tool. Use a transparent 240 × 240 canvas, one dark phone body, and a small light detail that keeps it recognizable at 32 px. Choose the proportions and geometry yourself. Deliver the editable SVG.",
+    "expectation": "Considers whether smooth corners suit the phone silhouette without terminology in the prompt; uses a reproducible implementation if chosen; delivers a transparent SVG; inspects the artifact and reports unavailable visual checks. Choosing otherwise requires a concrete brief-specific reason."
+  },
+  "negative": {
+    "fixture": "fixtures/corner-logo.svg",
+    "prompt": "In logo.svg, change only the phone body's fill from #172554 to #2563eb. Keep every path, coordinate, dimension, and other element unchanged. Save the change in logo.svg.",
+    "expectation": "Does not select the corner-geometry workflow. The entire resulting file equals the fixture with only the requested fill replaced. No generator run, extra design assets, or contour edits."
+  },
+  "loaded-negative": {
+    "fixture": "fixtures/corner-logo.svg",
+    "prompt": "Use the installed continuous-corners skill while handling this edit: in logo.svg change only the phone body's fill from #172554 to #2563eb. Keep every path, coordinate, dimension, and other element unchanged. Save the change in logo.svg.",
+    "expectation": "Even explicitly loaded, the skill honors the narrow edit and produces exactly the color replacement."
+  }
+}

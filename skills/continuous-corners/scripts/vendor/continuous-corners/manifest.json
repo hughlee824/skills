@@ -1,0 +1,20 @@
+{
+  "package": "@hughlee824/continuous-corners",
+  "version": "0.1.0",
+  "distribution": "local unpublished source snapshot",
+  "profile": "superellipse-balanced-v1",
+  "files": {
+    "index.mjs": {
+      "source": "src/index.mjs",
+      "sha256": "ef0959bcfc6ba0208fc74c974c0d2b764baa7af20145ea40754d928709051378"
+    },
+    "profile.mjs": {
+      "source": "src/profile.mjs",
+      "sha256": "f224828d86a664b44e0f63dcf69f423f8326ce1b3e57ae238f0cbfbf65a2b866"
+    },
+    "LICENSE": {
+      "source": "LICENSE",
+      "sha256": "385b2f6d75eb0a85258cd3be3a425379d37251303da4b2b33789e7c4beadca2e"
+    }
+  }
+}

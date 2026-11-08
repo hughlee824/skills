@@ -1,0 +1,4 @@
+interface:
+  display_name: "Continuous Corners"
+  short_description: "Consider and construct smooth SVG corner geometry"
+  default_prompt: "Use $continuous-corners to design a phone-themed SVG logo and check whether smooth corners suit its silhouette."

@@ -1,0 +1,11 @@
+Continuous Corners Skill
+Copyright 2026 hughlee824
+
+Instructions and generator wrapper: Apache-2.0, as licensed by this repository.
+The bundled geometry runtime under scripts/vendor/continuous-corners is adapted
+only by packaging from @hughlee824/continuous-corners 0.1.0 (local, unpublished).
+Its source files are copied without modification and remain MIT licensed:
+Copyright (c) 2026 iPhone-use contributors.
+See scripts/vendor/continuous-corners/LICENSE and manifest.json.
+
+The profile is experimental and is not an Apple or Figma implementation contract.

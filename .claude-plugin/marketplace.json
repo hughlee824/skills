@@ -1,9 +1,9 @@
 {
   "name": "hughlee-skills",
-  "description": "Focused Agent Skills for aligning intent and explaining complex ideas clearly.",
+  "description": "Focused Agent Skills for aligning intent, explaining complex ideas, and applying overlooked design knowledge.",
   "owner": {
-    "name": "HughLee824",
-    "url": "https://github.com/HughLee824"
+    "name": "hughlee824",
+    "url": "https://github.com/hughlee824"
   },
   "plugins": [
     {
@@ -14,11 +14,11 @@
       "strict": false,
       "skills": ["./"],
       "author": {
-        "name": "HughLee824",
-        "url": "https://github.com/HughLee824"
+        "name": "hughlee824",
+        "url": "https://github.com/hughlee824"
       },
-      "homepage": "https://github.com/HughLee824/skills/tree/main/skills/common-ground",
-      "repository": "https://github.com/HughLee824/skills",
+      "homepage": "https://github.com/hughlee824/skills/tree/main/skills/common-ground",
+      "repository": "https://github.com/hughlee824/skills",
       "license": "Apache-2.0",
       "keywords": ["agent-skills", "alignment", "productivity"],
       "category": "productivity"
@@ -31,14 +31,38 @@
       "strict": false,
       "skills": ["./"],
       "author": {
-        "name": "HughLee824",
-        "url": "https://github.com/HughLee824"
+        "name": "hughlee824",
+        "url": "https://github.com/hughlee824"
       },
-      "homepage": "https://github.com/HughLee824/skills/tree/main/skills/eli5",
-      "repository": "https://github.com/HughLee824/skills",
+      "homepage": "https://github.com/hughlee824/skills/tree/main/skills/eli5",
+      "repository": "https://github.com/hughlee824/skills",
       "license": "Apache-2.0",
       "keywords": ["agent-skills", "visual-explanation", "education"],
       "category": "productivity"
+    },
+    {
+      "name": "continuous-corners",
+      "displayName": "Continuous Corners",
+      "description": "Consider smooth corner geometry while designing SVG logos, icons, and device silhouettes; generate reproducible paths without changing unrelated geometry.",
+      "source": "./skills/continuous-corners",
+      "strict": false,
+      "skills": [
+        "./"
+      ],
+      "author": {
+        "name": "hughlee824",
+        "url": "https://github.com/hughlee824"
+      },
+      "homepage": "https://github.com/hughlee824/skills/tree/main/skills/continuous-corners",
+      "repository": "https://github.com/hughlee824/skills",
+      "license": "Apache-2.0",
+      "keywords": [
+        "agent-skills",
+        "svg",
+        "design",
+        "continuous-corners"
+      ],
+      "category": "design"
     }
   ]
 }

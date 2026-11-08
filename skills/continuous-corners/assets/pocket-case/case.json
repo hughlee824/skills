@@ -1,0 +1,44 @@
+{
+  "case": "Pocket phone-themed logo",
+  "date": "2026-11-08",
+  "host": "codex-cli 0.167.0",
+  "configuredModel": "gpt-6-astra",
+  "configuredReasoningEffort": "high",
+  "runsPerCondition": 1,
+  "prompt": "为一个名叫 Pocket 的开发者工具设计一个手机主题的 SVG logo。使用透明背景、深色主体和少量浅色细节，整体简洁，在 32px 时仍能辨认。画布为 240×240，直接生成可编辑的 logo.svg。只在当前项目目录内完成工作，不发布。",
+  "conditions": "Separate fresh temporary Git projects and ephemeral CLI sessions; same prompt and configured model/reasoning settings. Only the with-skill project contained continuous-corners. Other installed skills remained available. This was not a hermetic environment benchmark.",
+  "withoutSkill": {
+    "bodyElement": "rect",
+    "width": 132,
+    "height": 192,
+    "rx": 30
+  },
+  "withSkill": {
+    "automaticSelection": true,
+    "generatorExecuted": true,
+    "profile": "superellipse-balanced-v1",
+    "width": 144,
+    "height": 200,
+    "extent": 36,
+    "bodyTokensMatchGenerator": true
+  },
+  "artifactsSha256": {
+    "without-skill.svg": "ffd2f77cdeb80c07191e576b02dde5e32f3b89ce9b5b090c24bb121e15c44087",
+    "with-skill.svg": "58c1f4a280756ad6bd41f8cda5dbf74b10405f4d87dedc2d6e729b415cd42611"
+  },
+  "limitations": [
+    "One paired example, not a trigger-rate or visual-quality benchmark.",
+    "Composition, details, dimensions, and corner parameters were chosen independently; full-image differences are not isolated corner effects.",
+    "Neither SVG is the iphone-use production logo.",
+    "No Apple/Figma exact-match or Claude model behavior claim."
+  ],
+  "preview": {
+    "renderer": "Playwright 1.65.0 / Chromium 158.0.8127.18",
+    "fullMarkSize": 240,
+    "smallMarkSize": 32,
+    "cornerCropSourceSize": 56,
+    "cornerCropScale": 4,
+    "background": "white preview only; original SVGs remain transparent",
+    "viewportWidth": 1000
+  }
+}

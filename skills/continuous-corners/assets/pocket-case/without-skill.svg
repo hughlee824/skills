@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 240 240" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">Pocket</title>
+  <desc id="desc">A dark rounded phone with a light speaker and a simple pocket outline.</desc>
+  <g id="phone">
+    <rect id="body" x="54" y="24" width="132" height="192" rx="30" fill="#17212B"/>
+    <rect id="speaker" x="102" y="42" width="36" height="9" rx="4.5" fill="#E8EEF2"/>
+  </g>
+  <path id="pocket" d="M84 108H156V141C156 150 151 157 143 163L120 179L97 163C89 157 84 150 84 141V108Z" stroke="#E8EEF2" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
