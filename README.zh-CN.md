@@ -12,10 +12,11 @@ Agent 失败不只是因为它不会写代码。很多时候，真正的问题�
 
 ![两种缩小理解差距的方式：common-ground 将不一致的地图对齐为共享蓝图，eli5 将复杂系统转化为清晰的视觉模型。](docs/assets/skills-overview.webp)
 
-这个集合从两个方向缩小理解差距：
+这个集合关注理解差距与容易遗漏的专业知识：
 
 - `common-ground` 帮助用户与 agent 在行动前发现足以影响结果的认知差距。
 - `eli5` 把复杂主题转化成容易检查、理解和分享的视觉解释。
+- `continuous-corners` 在 SVG logo、图标与设备轮廓设计中补上容易遗漏的圆角判断，并提供可复现的生成工具。
 
 本项目不追求尽可能多地收集 skills，而是维护一组规模克制、用途清晰、边界明确的工作流。
 
@@ -25,6 +26,7 @@ Agent 失败不只是因为它不会写代码。很多时候，真正的问题�
 | --- | --- | --- |
 | [`common-ground`](skills/common-ground/) | 双方对意图、术语、验收标准或关键假设的理解可能不一致 | 一份共享工作地图，明确区分事实、决定、假设、未知项与偏离规则 |
 | [`eli5`](skills/eli5/) | 复杂主题更适合通过图示和少量文字来理解 | 一份可移植、可独立运行的 HTML 视觉解说页面 |
+| [`continuous-corners`](skills/continuous-corners/) | 创建或精修 SVG logo、图标、设备轮廓等显著圆角形状 | 明确的圆角选择与可复现 SVG；仅改颜色或要求保留形状时不改变轮廓 |
 
 ## 使用 `skills` CLI 安装
 
@@ -39,6 +41,7 @@ npx skills add HughLee824/skills --list
 ```bash
 npx skills add HughLee824/skills --skill common-ground -g -a codex
 npx skills add HughLee824/skills --skill eli5 -g -a codex
+npx skills add HughLee824/skills --skill continuous-corners -g -a codex
 ```
 
 为 Claude Code 全局安装单个 skill：
@@ -46,6 +49,7 @@ npx skills add HughLee824/skills --skill eli5 -g -a codex
 ```bash
 npx skills add HughLee824/skills --skill common-ground -g -a claude-code
 npx skills add HughLee824/skills --skill eli5 -g -a claude-code
+npx skills add HughLee824/skills --skill continuous-corners -g -a claude-code
 ```
 
 移除 `-g` 即可改为项目级安装。
@@ -65,9 +69,10 @@ Skill 会以当前 agent 已拥有的权限运行。安装或调用前，请先�
 ```text
 /plugin install common-ground@hughlee-skills
 /plugin install eli5@hughlee-skills
+/plugin install continuous-corners@hughlee-skills
 ```
 
-如果 Claude Code 提示需要激活新安装的 plugin，请运行 `/reload-plugins`。通过 marketplace 安装后，对应的完整命令名为 `/common-ground:common-ground` 与 `/eli5:eli5`。
+如果 Claude Code 提示需要激活新安装的 plugin，请运行 `/reload-plugins`。通过 marketplace 安装后，对应的完整命令名为 `/common-ground:common-ground`、`/eli5:eli5` 与 `/continuous-corners:continuous-corners`。
 
 ### 手动安装
 
@@ -97,18 +102,26 @@ $common-ground 在开始实现结账流程改版前，先帮我们对齐理解�
 
 $eli5 用图解释 DNS 如何把域名转换成服务器地址。
 
+$continuous-corners 设计一个手机主题的 SVG logo，并考虑合适的圆角轮廓。
+
 # 通过 skills CLI 或手动安装到 Claude Code
 /common-ground 在开始实现结账流程改版前，先帮我们对齐理解。
 
 /eli5 用图解释 DNS 如何把域名转换成服务器地址。
+
+/continuous-corners 设计一个手机主题的 SVG logo，并考虑合适的圆角轮廓。
 ```
 
-当请求与 `description` 明确匹配时，这两个 skills 也可能被自动选择。
+当请求与 `description` 明确匹配时，skills 也可能被自动选择。实际选择取决于 agent；安装不保证每个相关任务都自动触发。
+
+`continuous-corners` 自带离线 SVG/path/JSON 生成工具，需要 Node.js 22+。固定 profile 为实验性实现，不声称精确复现 Apple 或 Figma。参阅[工具使用说明](skills/continuous-corners/references/usage.md)与[验证流程](docs/continuous-corners-testing.md)。
+
+[Skill README](skills/continuous-corners/README.zh-CN.md) 包含设计原理，以及相同提示词下安装与未安装 Skill 的真实效果对照。
 
 ## 兼容性
 
 - 每个 skill 都是独立目录，并包含 Agent Skills 格式要求的 `SKILL.md`。
-- 已使用 Codex、Claude Code 和 `skills` CLI 完成验证。
+- 安装发现、marketplace 元数据与 agent 行为分别验证；安装成功不等于自动触发已经验证。
 - 在实际可行的前提下，核心指令不依赖特定 agent。
 - `agents/openai.yaml` 提供可选的 Codex 展示元数据与调用策略。
 - `.claude-plugin/marketplace.json` 将每个 skill 暴露为可独立安装的 Claude Code plugin，同时避免复制核心指令。
@@ -124,6 +137,7 @@ $eli5 用图解释 DNS 如何把域名转换成服务器地址。
 ├── .github/
 │   └── PULL_REQUEST_TEMPLATE.md
 ├── docs/
+│   ├── continuous-corners-testing.md
 │   └── assets/
 │       └── skills-overview.webp
 ├── skills/
@@ -131,11 +145,27 @@ $eli5 用图解释 DNS 如何把域名转换成服务器地址。
 │   │   ├── SKILL.md
 │   │   ├── agents/
 │   │   └── references/
+│   ├── continuous-corners/
+│   │   ├── README.md
+│   │   ├── README.zh-CN.md
+│   │   ├── assets/
+│   │   ├── SKILL.md
+│   │   ├── agents/
+│   │   ├── references/
+│   │   ├── scripts/
+│   │   ├── LICENSE
+│   │   └── NOTICE
 │   └── eli5/
 │       ├── SKILL.md
 │       ├── agents/
 │       ├── LICENSE
 │       └── NOTICE
+├── scripts/
+│   └── check-continuous-corners-vendor.mjs
+├── tests/
+│   ├── continuous-corners.test.mjs
+│   ├── continuous-corners-cases.json
+│   └── fixtures/
 ├── CONTRIBUTING.md
 ├── LICENSE
 ├── NOTICE

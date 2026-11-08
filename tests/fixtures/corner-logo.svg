@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240">
+  <path id="phone" fill="#172554" d="M82 16 H158 Q178 16 178 36 V204 Q178 224 158 224 H82 Q62 224 62 204 V36 Q62 16 82 16 Z"/>
+  <path id="speaker" fill="#ffffff" d="M105 29 H135 V33 H105 Z"/>
+  <circle id="home" cx="120" cy="208" r="5" fill="#ffffff"/>
+</svg>

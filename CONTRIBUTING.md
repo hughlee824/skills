@@ -50,6 +50,8 @@ For each changed skill:
 4. Inspect generated artifacts or side effects rather than relying only on the agent's summary.
 5. Run `git diff --check` before submitting.
 
+For changes to `continuous-corners`, also follow [its verification procedure](docs/continuous-corners-testing.md): run the Node tests and vendor integrity check, and exercise the positive and negative behavior cases when instructions or activation boundaries change.
+
 ## Pull requests
 
 Explain the user-visible problem, why the change is appropriately scoped, and what you actually verified. Keep unrelated formatting or refactors out of the pull request.
