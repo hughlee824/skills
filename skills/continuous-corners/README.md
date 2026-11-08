@@ -65,12 +65,12 @@ The agent still needs to inspect small-size recognition, composition, spacing, s
 Install into a project from its directory, or add `-g` for a user-level installation:
 
 ```sh
-npx skills add HughLee824/skills --skill continuous-corners -a codex
+npx skills add hughlee824/skills --skill continuous-corners -a codex
 # Or target Claude Code:
-npx skills add HughLee824/skills --skill continuous-corners -a claude-code
+npx skills add hughlee824/skills --skill continuous-corners -a claude-code
 ```
 
-For an unpublished branch, replace `HughLee824/skills` with the local repository path. Start a fresh session after installation when testing discovery. Automatic selection depends on the host and task; it is not guaranteed for every design request.
+For an unpublished branch, replace `hughlee824/skills` with the local repository path. Start a fresh session after installation when testing discovery. Automatic selection depends on the host and task; it is not guaranteed for every design request.
 
 Explicit invocation is also available:
 

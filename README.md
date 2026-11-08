@@ -33,23 +33,23 @@ The goal is not to accumulate as many skills as possible. It is to maintain a sm
 Review the available skills before installing them:
 
 ```bash
-npx skills add HughLee824/skills --list
+npx skills add hughlee824/skills --list
 ```
 
 Install one skill globally for Codex:
 
 ```bash
-npx skills add HughLee824/skills --skill common-ground -g -a codex
-npx skills add HughLee824/skills --skill eli5 -g -a codex
-npx skills add HughLee824/skills --skill continuous-corners -g -a codex
+npx skills add hughlee824/skills --skill common-ground -g -a codex
+npx skills add hughlee824/skills --skill eli5 -g -a codex
+npx skills add hughlee824/skills --skill continuous-corners -g -a codex
 ```
 
 Install one skill globally for Claude Code:
 
 ```bash
-npx skills add HughLee824/skills --skill common-ground -g -a claude-code
-npx skills add HughLee824/skills --skill eli5 -g -a claude-code
-npx skills add HughLee824/skills --skill continuous-corners -g -a claude-code
+npx skills add hughlee824/skills --skill common-ground -g -a claude-code
+npx skills add hughlee824/skills --skill eli5 -g -a claude-code
+npx skills add hughlee824/skills --skill continuous-corners -g -a claude-code
 ```
 
 Omit `-g` for a project-scoped installation.
@@ -61,7 +61,7 @@ Agent skills run with the permissions available to your agent. Read a skill's `S
 Add this repository as a marketplace once:
 
 ```text
-/plugin marketplace add HughLee824/skills
+/plugin marketplace add hughlee824/skills
 ```
 
 Then install a skill independently:
@@ -79,7 +79,7 @@ Run `/reload-plugins` if Claude Code prompts you to activate newly installed plu
 Clone the repository and copy the skill you want into the user-level skills directory for your agent:
 
 ```bash
-git clone https://github.com/HughLee824/skills.git agent-skills
+git clone https://github.com/hughlee824/skills.git agent-skills
 
 # Codex
 mkdir -p "$HOME/.agents/skills"

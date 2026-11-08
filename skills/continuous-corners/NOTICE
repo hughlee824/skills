@@ -1,5 +1,5 @@
 Continuous Corners Skill
-Copyright 2026 HughLee824
+Copyright 2026 hughlee824
 
 Instructions and generator wrapper: Apache-2.0, as licensed by this repository.
 The bundled geometry runtime under scripts/vendor/continuous-corners is adapted

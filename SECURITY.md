@@ -8,7 +8,7 @@ Security fixes are applied to the latest version on the `main` branch.
 
 ## Report a vulnerability
 
-Use [GitHub's private vulnerability reporting](https://github.com/HughLee824/skills/security/advisories/new) when it is available. Do not disclose sensitive details in a public issue.
+Use [GitHub's private vulnerability reporting](https://github.com/hughlee824/skills/security/advisories/new) when it is available. Do not disclose sensitive details in a public issue.
 
 If private reporting is unavailable, open a public issue titled `[security] Request private contact` without including vulnerability details. A private channel can then be arranged.
 

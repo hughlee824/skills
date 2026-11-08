@@ -63,12 +63,12 @@ Agent 仍需检查小尺寸辨识度、构图、留白、描边裁切，以及�
 在项目目录中安装，或加 `-g` 进行用户级安装：
 
 ```sh
-npx skills add HughLee824/skills --skill continuous-corners -a codex
+npx skills add hughlee824/skills --skill continuous-corners -a codex
 # 或安装到 Claude Code：
-npx skills add HughLee824/skills --skill continuous-corners -a claude-code
+npx skills add hughlee824/skills --skill continuous-corners -a claude-code
 ```
 
-验证尚未发布的分支时，将 `HughLee824/skills` 换成本地仓库路径。安装后通过全新会话测试发现机制。自动选择取决于宿主和任务，不保证所有设计请求都会触发。
+验证尚未发布的分支时，将 `hughlee824/skills` 换成本地仓库路径。安装后通过全新会话测试发现机制。自动选择取决于宿主和任务，不保证所有设计请求都会触发。
 
 也可以显式调用：
 

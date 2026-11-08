@@ -33,23 +33,23 @@ Agent 失败不只是因为它不会写代码。很多时候，真正的问题�
 安装前先查看仓库中可用的 skills：
 
 ```bash
-npx skills add HughLee824/skills --list
+npx skills add hughlee824/skills --list
 ```
 
 为 Codex 全局安装单个 skill：
 
 ```bash
-npx skills add HughLee824/skills --skill common-ground -g -a codex
-npx skills add HughLee824/skills --skill eli5 -g -a codex
-npx skills add HughLee824/skills --skill continuous-corners -g -a codex
+npx skills add hughlee824/skills --skill common-ground -g -a codex
+npx skills add hughlee824/skills --skill eli5 -g -a codex
+npx skills add hughlee824/skills --skill continuous-corners -g -a codex
 ```
 
 为 Claude Code 全局安装单个 skill：
 
 ```bash
-npx skills add HughLee824/skills --skill common-ground -g -a claude-code
-npx skills add HughLee824/skills --skill eli5 -g -a claude-code
-npx skills add HughLee824/skills --skill continuous-corners -g -a claude-code
+npx skills add hughlee824/skills --skill common-ground -g -a claude-code
+npx skills add hughlee824/skills --skill eli5 -g -a claude-code
+npx skills add hughlee824/skills --skill continuous-corners -g -a claude-code
 ```
 
 移除 `-g` 即可改为项目级安装。
@@ -61,7 +61,7 @@ Skill 会以当前 agent 已拥有的权限运行。安装或调用前，请先�
 只需添加一次本仓库 marketplace：
 
 ```text
-/plugin marketplace add HughLee824/skills
+/plugin marketplace add hughlee824/skills
 ```
 
 之后可以独立安装任一 skill：
@@ -79,7 +79,7 @@ Skill 会以当前 agent 已拥有的权限运行。安装或调用前，请先�
 克隆仓库，然后把所需 skill 复制到对应 agent 的用户级 skills 目录：
 
 ```bash
-git clone https://github.com/HughLee824/skills.git agent-skills
+git clone https://github.com/hughlee824/skills.git agent-skills
 
 # Codex
 mkdir -p "$HOME/.agents/skills"
